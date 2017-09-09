@@ -1,5 +1,5 @@
 // Import MySQL connection.
-var connection = require("connection.js");
+var connection = require("./connection.js");
 
 var orm = {
 	selectAll: function(tableInput, cb){
@@ -12,13 +12,13 @@ var orm = {
 		});
 	},
 
-	insertOne: function(table, cols, insertObject, cb){
-		var queryString += "INSERT INTO " + table;
+	insertOne: function(table, cols, values, cb){
+		var queryString = "INSERT INTO " + table;
 		queryString += "(";
 		queryString += cols.toString();
 		queryString += ") ";
 		queryString += "VALUES ";
-		queryString += insertObject;
+		queryString += values;
 		queryString += ") ";
 
 		connection.query(queryString, vals, function(err, result) {
