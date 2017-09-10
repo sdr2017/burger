@@ -29,9 +29,10 @@ var orm = {
       	});
 	},
 
-	//UPDATE scores SET Num=0 WHERE Name="Richard";
+	//UPDATE burgers SET devoured=1 WHERE id=3;
 	updateOne: function(table, condition, cb) {
 		console.log("condition", condition);
+    	
     	var queryString = "UPDATE " + table;
 
 	    queryString += " SET devoured=1 ";
