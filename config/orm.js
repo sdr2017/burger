@@ -2,6 +2,8 @@
 var connection = require("./connection.js");
 
 var orm = {
+	
+	//FOR DISPLAYING INITIAL UNEATEN BURGERS FROM DB TO HTML
 	selectAll: function(tableInput, cb){
 		var queryString = "SELECT * FROM " + tableInput + ";"
 		connection.query(queryString, function(err, result){
@@ -12,6 +14,7 @@ var orm = {
 		});
 	},
 
+	//FOR ADDING A NEW BURGER TO THE DB FROM HTML
 	//insert into burgers( id, burger_name, devoured, date_added) VALUES(default,'Baby You Can Chive My Car Burger',default,DEFAULT);
 	insertOne: function(table, req, cb){
 		var queryString = "INSERT INTO " + table;
@@ -29,6 +32,7 @@ var orm = {
       	});
 	},
 
+	//FOR CHANGING A BURGER FROM "UNEATEN" TO "EATEN" IN THE DB FROM HTML
 	//UPDATE burgers SET devoured=1 WHERE id=3;
 	updateOne: function(table, condition, cb) {
 		console.log("condition", condition);

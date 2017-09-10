@@ -1,5 +1,5 @@
 var express = require("express");
-var burger = require("../models/burger.js");
+var burger = require("../models/burger.js");//CONNECT TO BURGER.JS IN MODELS FOLDER
 var path = require("path");
 var router = express.Router();
 
