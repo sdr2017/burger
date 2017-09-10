@@ -12,16 +12,17 @@ var orm = {
 		});
 	},
 
-	insertOne: function(table, cols, values, cb){
-		var queryString = "INSERT INTO " + table;
-		queryString += "(";
-		queryString += cols.toString();
-		queryString += ") ";
-		queryString += "VALUES ";
-		queryString += values;
-		queryString += ") ";
+//insert into burgers( id, burger_name, devoured, date_added) VALUES(default,'Baby You Can Chive My Car Burger',default,DEFAULT);
 
-		connection.query(queryString, values, function(err, result) {
+	insertOne: function(table, req, cb){
+		var queryString = "INSERT INTO " + table;
+		queryString += "(id, burger_name, devoured, date_added";
+		queryString += ") ";
+		queryString += "VALUES (default, '";
+		queryString += req.toString();
+		queryString += "', default, default); ";
+
+		connection.query(queryString, function(err, result) {
 			if (err) {
 				throw err;
       		};

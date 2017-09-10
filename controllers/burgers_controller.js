@@ -16,21 +16,22 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-	var newBurger = req.body.newBurger;
-	console.log(newBurger);
+	var newBurger = req.body.burger_name;
+	console.log(req.body.burger_name);
   burger.insert([
-    newBurger
+    req.body.burger_name
   ], function() {
     res.redirect("/");
   });
 });
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+router.put("/", function(req, res) {
+	console.log(req.params)
+  var condition = "id = " + req.params;
 
   console.log("condition", condition);
 
-  buerger.update({
+  burger.update({
     sleepy: req.body.sleepy
   }, condition, function() {
     res.redirect("/");

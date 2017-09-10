@@ -6,32 +6,39 @@
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
         </div>
 
-        <form class="submitBurger" action="/" method="POST">
+        
             <div class="row">
                 <div id="burgersToEat" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                     <ul>
                         {{#each burgers}}
-                        <li>{{this.burger_name}}</li>
+                        {{#unless this.devoured}}
+                            <li>{{this.burger_name}}
+                                <form action="/" method="PUT">
+                                    <button id="eatBurger" type="submit" class="btn btn-secondary btn-sm">Eat Me!
+                                    </button>
+                                </form>
+                            </li>
+                        {{/unless}}
                         {{/each}}
                     </ul>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label for="exampleTextarea">Submit a Burger to Eat</label>
-                        <input type="text" name="newBurger" class="form-control" id="exampleTextarea" rows="3"></input>
-                    </div>
-                </div>
-                <div id="eatenBurgers" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <form class="submitBurger" action="/?_method=POST" method="POST">
+                        <div class="form-group">
+                            <label for="exampleTextarea">Submit a Burger to Eat</label>
+                            <textarea type="text" name="burger_name" class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        </div>
                         <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+                    </form>
+                </div>
+
+                <div id="eatenBurgers" class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        {{#each burgers}}
+                        {{#if this.devoured}}
+                        <li>{{this.burger_name}}</li>
+                        {{/if}}
+                        {{/each}}
+                </div>
             </div>
-        </form>
 
