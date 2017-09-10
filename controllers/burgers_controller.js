@@ -28,9 +28,7 @@ router.put("/", function(req, res) {
 	console.log(req.body.burger);
   var condition = req.body.burger;
 
-  console.log("condition", condition);
-
-  burger.update([condition], function() {
+  burger.update(condition, function() {
     res.redirect("/");
   });
 });

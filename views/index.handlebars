@@ -13,7 +13,7 @@
                         {{#each burgers}}
                         {{#unless this.devoured}}
                             <li>{{this.burger_name}}
-                                <form action="/" method="PUT">
+                                <form action="/?_method=PUT" method="POST">
                                     <button id="eatBurger" type="submit" class="btn btn-secondary btn-sm" name="burger" value={{{this.id}}}>Eat Me!
                                     </button>
                                 </form>

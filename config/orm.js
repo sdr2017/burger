@@ -35,9 +35,11 @@ var orm = {
     	var queryString = "UPDATE " + table;
 
 	    queryString += " SET devoured=1 ";
-	    queryString += " WHERE burger_name=";
+	    queryString += " WHERE id=";
 	    queryString += condition;
-	    queryString += '";'
+	    queryString += ';'
+
+	    console.log(queryString);
 
     	connection.query(queryString, function(err, result) {
 			if (err) {
