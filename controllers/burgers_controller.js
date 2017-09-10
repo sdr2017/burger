@@ -16,7 +16,6 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
-	var newBurger = req.body.burger_name;
 	console.log(req.body.burger_name);
   burger.insert([
     req.body.burger_name
@@ -26,14 +25,12 @@ router.post("/", function(req, res) {
 });
 
 router.put("/", function(req, res) {
-	console.log(req.params)
-  var condition = "id = " + req.params;
+	console.log(req.body.burger);
+  var condition = req.body.burger;
 
   console.log("condition", condition);
 
-  burger.update({
-    sleepy: req.body.sleepy
-  }, condition, function() {
+  burger.update([condition], function() {
     res.redirect("/");
   });
 });

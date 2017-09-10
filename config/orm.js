@@ -12,8 +12,7 @@ var orm = {
 		});
 	},
 
-//insert into burgers( id, burger_name, devoured, date_added) VALUES(default,'Baby You Can Chive My Car Burger',default,DEFAULT);
-
+	//insert into burgers( id, burger_name, devoured, date_added) VALUES(default,'Baby You Can Chive My Car Burger',default,DEFAULT);
 	insertOne: function(table, req, cb){
 		var queryString = "INSERT INTO " + table;
 		queryString += "(id, burger_name, devoured, date_added";
@@ -30,13 +29,15 @@ var orm = {
       	});
 	},
 
-	updateOne: function(table, objColVals, condition, cb) {
+	//UPDATE scores SET Num=0 WHERE Name="Richard";
+	updateOne: function(table, condition, cb) {
+		console.log("condition", condition);
     	var queryString = "UPDATE " + table;
 
-	    queryString += " SET ";
-	    queryString += objToSql(objColVals);
-	    queryString += " WHERE ";
+	    queryString += " SET devoured=1 ";
+	    queryString += " WHERE burger_name=";
 	    queryString += condition;
+	    queryString += '";'
 
     	connection.query(queryString, function(err, result) {
 			if (err) {
