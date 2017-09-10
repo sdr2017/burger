@@ -16,10 +16,10 @@ router.get("/", function(req, res) {
 });
 
 router.post("/", function(req, res) {
+	var newBurger = req.body.newBurger;
+	console.log(newBurger);
   burger.insert([
-    "name", "sleepy"
-  ], [
-    req.body.name, req.body.sleepy
+    newBurger
   ], function() {
     res.redirect("/");
   });

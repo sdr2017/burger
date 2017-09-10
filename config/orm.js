@@ -21,7 +21,7 @@ var orm = {
 		queryString += values;
 		queryString += ") ";
 
-		connection.query(queryString, vals, function(err, result) {
+		connection.query(queryString, values, function(err, result) {
 			if (err) {
 				throw err;
       		};
