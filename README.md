@@ -7,3 +7,5 @@ To add a burger, the user types in the name and hits the submit button. The burg
 When the user clicks an "Eat Me!" button, the boolean for devoured is changed from "false" to "true" in the databse and the burger is then moved to the "eaten" area in the HTML.
 
 ![Bob's Burgers](views/assets/images/burgers.png)
+
+View the website here: https://dry-anchorage-92157.herokuapp.com/
